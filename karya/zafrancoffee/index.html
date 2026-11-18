@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zafran Coffee & Jasa Roasting Profesional</title>
+    <meta name="description" content="Layanan Kopi & Jasa Roasting B2B Profesional. Kustomisasi profil sangrai sesuai kebutuhan kedai kopi Anda.">
+    
+    <!-- Favicon Integration -->
+    <link rel="icon" href="logo-zafran.jpeg" type="image/jpeg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            500: '#8c6b5d',
+                            800: '#4a332a',
+                            900: '#2c1e16',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .float-wa {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 35px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            z-index: 100; display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+        .bg-hero {
+            background-image: linear-gradient(rgba(44, 30, 22, 0.75), rgba(44, 30, 22, 0.85)), url('https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="font-sans bg-coffee-50 text-gray-800 antialiased scroll-smooth">
+
+    <!-- Navigasi Atas -->
+    <header class="bg-coffee-900 text-white sticky top-0 z-50 shadow-lg border-b border-coffee-800">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <!-- Logo Integration -->
+                <img src="logo-zafran.jpeg" alt="Logo Zafran Coffee" class="w-12 h-12 rounded-full border-2 border-coffee-500 object-cover shadow-sm">
+                <span class="text-2xl font-serif font-bold tracking-wider hidden sm:block">ZAFRAN<span class="text-coffee-500">COFFEE</span></span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#beranda" class="hover:text-coffee-500 transition-colors">Beranda</a>
+                <a href="#layanan" class="hover:text-coffee-500 transition-colors">Jasa Roasting</a>
+                <a href="#katalog" class="hover:text-coffee-500 transition-colors">Katalog Biji</a>
+                <a href="#kemitraan" class="text-coffee-500 hover:text-white transition-colors">Kemitraan B2B</a>
+            </nav>
+            <a href="https://wa.me/6281388766282?text=Halo%20Zafran%20Coffee,%20saya%20tertarik%20dengan%20kemitraan%20B2B." target="_blank" class="hidden md:inline-block bg-coffee-500 hover:bg-white hover:text-coffee-900 px-5 py-2 rounded text-sm font-bold transition-all duration-300">
+                Hubungi Kami
+            </a>
+            <button class="md:hidden text-2xl text-coffee-500"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="bg-hero h-[90vh] flex items-center">
+        <div class="container mx-auto px-6 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 drop-shadow-lg">Presisi Roasting untuk Karakter Kopi Nusantara</h1>
+            <p class="text-lg md:text-xl font-light mb-10 max-w-3xl mx-auto drop-shadow-md">Menghadirkan profil sangrai konsisten untuk kebutuhan komersial Kedai Kopi, Roastery B2B, dan Penikmat Kopi Spesialti.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#layanan" class="border-2 border-coffee-500 bg-coffee-900/50 hover:bg-coffee-500 text-white px-8 py-3 rounded text-lg font-semibold transition-all">Lihat Layanan</a>
+                <a href="https://wa.me/6281388766282" target="_blank" class="bg-coffee-500 hover:bg-white hover:text-coffee-900 px-8 py-3 rounded text-lg font-bold transition-all shadow-lg">Konsultasi Roasting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kemitraan B2B Section (Menu Tambahan) -->
+    <section id="kemitraan" class="py-20 bg-coffee-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden md:flex">
+                <div class="md:w-1/2 p-10 flex flex-col justify-center">
+                    <div class="text-sm font-bold text-coffee-500 uppercase tracking-widest mb-2">Solusi Suplai Kopi</div>
+                    <h2 class="text-3xl font-serif font-bold text-coffee-900 mb-4">Kemitraan B2B Kedai Kopi</h2>
+                    <p class="text-gray-600 mb-6">Kami menyediakan kapasitas mesin roasting industri untuk memenuhi *Minimum Order Quantity* (MOQ) kedai Anda dengan jaminan konsistensi rasa setiap bulannya.</p>
+                    <ul class="space-y-3 text-gray-700 mb-8">
+                        <li><i class="fas fa-check-circle text-coffee-500 mr-2"></i> Custom Espresso Blend</li>
+                        <li><i class="fas fa-check-circle text-coffee-500 mr-2"></i> White-label Packaging</li>
+                        <li><i class="fas fa-check-circle text-coffee-500 mr-2"></i> Konsultasi Profil Sangrai</li>
+                    </ul>
+                    <a href="https://wa.me/6281388766282" class="text-coffee-900 font-bold border-b-2 border-coffee-500 inline-block w-max hover:text-coffee-500 transition-colors">Ajukan Sampel Kopi &rarr;</a>
+                </div>
+                <div class="md:w-1/2 bg-coffee-900 relative">
+                    <!-- Menggunakan logo sebagai elemen visual ekstra atau placeholder gambar roasting -->
+                    <img src="logo-zafran.jpeg" alt="Proses Roasting" class="w-full h-full object-cover opacity-60">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-900 text-gray-400 pt-16 pb-8 border-t-4 border-coffee-500">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="logo-zafran.jpeg" alt="Zafran Coffee Footer" class="w-10 h-10 rounded-full object-cover">
+                    <h4 class="text-white text-xl font-serif font-bold">ZAFRAN<span class="text-coffee-500">COFFEE</span></h4>
+                </div>
+                <p class="mb-4 text-sm leading-relaxed">Kualitas biji kopi pilihan yang disangrai dengan dedikasi tinggi untuk menghadirkan pengalaman ngopi terbaik.</p>
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/roastingkopi.id/" target="_blank" class="text-gray-400 hover:text-coffee-500 text-2xl transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Tautan Cepat</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#beranda" class="hover:text-coffee-500 transition-colors">Beranda</a></li>
+                    <li><a href="#layanan" class="hover:text-coffee-500 transition-colors">Jasa Roasting</a></li>
+                    <li><a href="#kemitraan" class="hover:text-coffee-500 transition-colors">Kemitraan B2B</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Legalitas</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-coffee-500 transition-colors">Syarat & Ketentuan (ToS)</a></li>
+                    <li><a href="#" class="hover:text-coffee-500 transition-colors">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="hover:text-coffee-500 transition-colors">Sanggahan (Disclaimer)</a></li>
+                    <li><a href="#" class="hover:text-coffee-500 transition-colors">Kebijakan Cookie</a></li>
+                </ul>
+            </div>
+
+            <div id="kontak">
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Kontak Operasional</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start"><i class="fab fa-whatsapp mt-1 mr-3 text-coffee-500"></i> +62 813-8876-6282</li>
+                    <li class="flex items-start"><i class="fab fa-instagram mt-1 mr-3 text-coffee-500"></i> @roastingkopi.id</li>
+                    <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-coffee-500"></i> Banten, Indonesia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 text-center text-sm border-t border-coffee-800 pt-8">
+            <p class="text-gray-500">&copy; 2026 Zafran Coffee. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p class="mt-2 text-xs text-gray-600">Arsitektur Digital oleh <a href="https://akomodanetwork.com" class="text-coffee-500 hover:text-white font-semibold transition-colors">Akomoda Network</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6281388766282?text=Halo%20Admin%20Zafran%20Coffee,%20saya%20ingin%20bertanya%20seputar%20layanan%20kopi." target="_blank" class="float-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="logoPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2d75"/>
+      <stop offset="100%" stop-color="#ff0055"/>
+    </linearGradient>
+    <linearGradient id="logoCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <filter id="logoGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Circular Icon Badge -->
+  <g transform="translate(10, 10)">
+    <rect width="80" height="80" rx="20" fill="#140827" stroke="url(#logoPink)" stroke-width="2"/>
+    <circle cx="40" cy="40" r="30" fill="none" stroke="url(#logoCyan)" stroke-width="2" stroke-dasharray="4 3"/>
+    <circle cx="40" cy="40" r="24" fill="none" stroke="url(#logoPink)" stroke-width="3" filter="url(#logoGlow)"/>
+    <text x="40" y="47" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle" letter-spacing="1">KOTO</text>
+  </g>
+
+  <!-- Typography Brand -->
+  <text x="105" y="45" font-family="'Cormorant Garamond', 'Times New Roman', serif" font-weight="700" font-size="34" fill="#ffffff">
+    jimkoto<tspan fill="#f59e0b">.my.id</tspan>
+  </text>
+  <text x="106" y="70" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="11" fill="#00f2fe" letter-spacing="2">
+    DIGITAL LIFESTYLE • AKOMODA
+  </text>
+</svg>

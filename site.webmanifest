@@ -1,0 +1,16 @@
+{
+  "name": "Koto Batuah Digital - Jasa Digital Marketing Tangsel",
+  "short_name": "Koto Batuah",
+  "description": "Partner Pertumbuhan Digital untuk Bisnis Properti & UMKM Tangsel - Website SEO GEO Ready, Local SEO, Content. Maintained by James Isa aka Jim Koto.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F1E8",
+  "theme_color": "#3E2723",
+  "icons": [
+    {
+      "src": "/imgs/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

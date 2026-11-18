@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #070610;
+  --bg-card: #0d0c1a;
+  --ink: #f8fafc;
+  --accent: #f59e0b;
+  --accent-emerald: #10b981;
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --border-hairline: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #070610;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #070610;
+    color: #f8fafc;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245, 158, 11, 0.05), transparent 70%);
+    background-size: 48px 48px, 48px 48px, 100% 100%;
+    background-attachment: fixed;
+    letter-spacing: 0.005em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .font-serif, .font-serif-editorial {
+    font-family: 'Cormorant Garamond', Georgia, Cambria, serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  code, pre, kbd, .mono, .font-mono-tech {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Dark Blueprint Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070610;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232138;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}

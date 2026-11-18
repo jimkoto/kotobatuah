@@ -1,0 +1,14 @@
+name = "jimkoto-devstudio"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-09-01"
+
+[vars]
+ENVIRONMENT = "production"
+SITE_DOMAIN = "jimkoto.my.id"
+SITE_TITLE = "Jim Koto DevStudio • Akomoda Network"
+GOOGLE_SHEET_ID = "1n5kNGPAfAu8ov0gINi2fCPL79s3MANe-AAMIlRWvLsM"
+GOOGLE_SHEET_TAB = "Blog"
+GOOGLE_SHEET_GID = ""
+
+# Cloudflare Pages / Workers Routes
+# Deploy command: npx wrangler pages deploy dist
