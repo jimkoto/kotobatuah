@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koto Batuah — Digital Ecosystem &amp; AI Hub</title>
+  <meta name="description" content="Koto Batuah adalah entitas usaha periklanan dan arsitektur ekosistem digital yang menaungi Akomoda Network dan berbagai aset digital." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-footer: #f4f6f8;
+      --bg-pill: #ffffff;
+      --bg-chip: #f1f5f9;
+      --border-color: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent-navy: #0f294a;
+      --accent-emerald: #059669;
+      --hover-bg: rgba(15, 23, 42, 0.05);
+      --shadow-pill: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      --shadow-pill-focus: 0 8px 28px -4px rgba(15, 41, 74, 0.14), 0 4px 10px -2px rgba(15, 41, 74, 0.06);
+      --shadow-dropdown: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ================= TOP NAVIGATOR ================= */
+    header {
+      width: 100%;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+      z-index: 50;
+    }
+
+    .top-link {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .top-link:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    .launcher-wrapper {
+      position: relative;
+    }
+
+    .launcher-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: background-color 0.2s ease;
+    }
+
+    .launcher-btn:hover,
+    .launcher-btn.active {
+      background-color: var(--hover-bg);
+    }
+
+    .launcher-dropdown {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 300px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: var(--shadow-dropdown);
+      padding: 16px;
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .launcher-dropdown.show {
+      display: grid;
+      animation: fadeIn 0.15s ease-out;
+    }
+
+    .app-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px 6px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: background-color 0.15s ease;
+    }
+
+    .app-item:hover {
+      background-color: var(--bg-footer);
+    }
+
+    .app-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .app-name {
+      font-size: 11.5px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--text-secondary);
+    }
+
+    .brand-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-navy), var(--accent-emerald));
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(15, 41, 74, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .brand-avatar:hover {
+      transform: scale(1.05);
+    }
+
+    /* ================= MAIN CENTER STAGE ================= */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      width: 100%;
+      max-width: 720px;
+      margin: -3vh auto 0 auto;
+    }
+
+    .logo-container {
+      text-align: center;
+      user-select: none;
+      margin-bottom: 28px;
+    }
+
+    .brand-wordmark {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--accent-navy);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .brand-wordmark .accent-dot {
+      color: var(--accent-emerald);
+    }
+
+    .brand-wordmark .sub-word {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    /* ================= AI PILL BAR (BENCHMARK INSPIRED) ================= */
+    .ai-bar-wrapper {
+      width: 100%;
+      position: relative;
+    }
+
+    .ai-pill-bar {
+      width: 100%;
+      min-height: 54px;
+      background: var(--bg-pill);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      box-shadow: var(--shadow-pill);
+      display: flex;
+      align-items: center;
+      padding: 6px 8px 6px 14px;
+      gap: 10px;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .ai-pill-bar:focus-within {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-pill-focus);
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--hover-bg);
+      color: var(--text-primary);
+    }
+
+    .icon-btn.recording {
+      color: #dc2626;
+      background-color: #fee2e2;
+      animation: pulse 1.2s infinite;
+    }
+
+    .ai-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text-primary);
+      min-width: 0;
+    }
+
+    .ai-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Right AI Mode Pill Button */
+    .ai-submit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--bg-chip);
+      color: var(--accent-navy);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .ai-submit-pill:hover {
+      background-color: #e2e8f0;
+    }
+
+    .ai-submit-pill.active-accent {
+      background-color: var(--accent-navy);
+      color: #ffffff;
+    }
+
+    .ai-submit-pill.active-accent:hover {
+      background-color: #163a68;
+    }
+
+    /* Quick Prompt Menu (+) */
+    .quick-prompts-menu {
+      position: absolute;
+      top: 62px;
+      left: 0;
+      width: 280px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: var(--shadow-dropdown);
+      padding: 8px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 40;
+    }
+
+    .quick-prompts-menu.show {
+      display: flex;
+      animation: fadeIn 0.15s ease-out;
+    }
+
+    .prompt-option {
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .prompt-option:hover {
+      background-color: var(--bg-footer);
+    }
+
+    /* ================= AI RESPONSE CARD ================= */
+    .ai-response-box {
+      width: 100%;
+      margin-top: 20px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: none;
+      text-align: left;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .ai-response-box.visible {
+      display: block;
+    }
+
+    .ai-response-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ai-close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .ai-response-text {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--text-primary);
+      white-space: pre-line;
+    }
+
+    /* ================= BOTTOM NAVIGATOR (FOOTER) ================= */
+    footer {
+      width: 100%;
+      background-color: var(--bg-footer);
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-top: 40px;
+    }
+
+    .footer-location {
+      padding: 14px 30px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+    }
+
+    .footer-links {
+      padding: 14px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-links a,
+    .footer-links button {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .footer-links a:hover,
+    .footer-links button:hover {
+      text-decoration: underline;
+      color: var(--text-primary);
+    }
+
+    /* ================= LIGHTWEIGHT INFO MODAL ================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 200;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.15s ease-out;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      max-width: 460px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-dropdown);
+      border: 1px solid var(--border-color);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .modal-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent-navy);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 4px;
+    }
+
+    .modal-body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ================= RESPONSIVE ADJUSTMENTS ================= */
+    @media (max-width: 640px) {
+      header {
+        padding: 12px 16px;
+        gap: 14px;
+      }
+
+      .ai-pill-bar {
+        padding: 5px 6px 5px 10px;
+        gap: 6px;
+      }
+
+      .ai-input {
+        font-size: 14px;
+      }
+
+      .ai-submit-pill span {
+        display: none; /* Pada layar sangat kecil, tampilkan ikon agar lega */
+      }
+
+      .ai-submit-pill {
+        padding: 9px 12px;
+      }
+
+      .footer-location {
+        padding: 12px 20px;
+      }
+
+      .footer-links {
+        padding: 14px 20px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 14px;
+      }
+
+      .footer-group {
+        justify-content: center;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVIGATOR -->
+  <header>
+    <a href="mailto:halo@kotobatuah.com" class="top-link">Webmail</a>
+    <a href="https://akomodanetwork.com" target="_blank" rel="noopener" class="top-link">Akomoda</a>
+
+    <!-- 9-Dots Ecosystem Launcher -->
+    <div class="launcher-wrapper">
+      <button class="launcher-btn" id="launcherBtn" aria-label="Ekosistem Koto Batuah" title="Ekosistem Digital">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"/>
+        </svg>
+      </button>
+
+      <div class="launcher-dropdown" id="launcherMenu">
+        <a href="https://kotobatuah.com" class="app-item">
+          <div class="app-icon" style="background:#0f294a;">KB</div>
+          <span class="app-name">Koto Batuah</span>
+        </a>
+        <a href="https://akomodanetwork.com" target="_blank" rel="noopener" class="app-item">
+          <div class="app-icon" style="background:#059669;">AN</div>
+          <span class="app-name">Akomoda</span>
+        </a>
+        <a href="https://aiholistic.xyz" target="_blank" rel="noopener" class="app-item">
+          <div class="app-icon" style="background:#2563eb;">AI</div>
+          <span class="app-name">AI Holistic</span>
+        </a>
+        <a href="https://jimkoto.my.id" target="_blank" rel="noopener" class="app-item">
+          <div class="app-icon" style="background:#d97706;">JK</div>
+          <span class="app-name">Jim Koto</span>
+        </a>
+        <a href="https://portaltangerangraya.com" target="_blank" rel="noopener" class="app-item">
+          <div class="app-icon" style="background:#dc2626;">PT</div>
+          <span class="app-name">Portal TangRaya</span>
+        </a>
+        <a href="https://wa.me/6281324412025" target="_blank" rel="noopener" class="app-item">
+          <div class="app-icon" style="background:#16a34a;">WA</div>
+          <span class="app-name">Kontak Bisnis</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Brand Identity Avatar -->
+    <a href="https://jimkoto.my.id" target="_blank" rel="noopener" class="brand-avatar" title="Jim Koto — Founder">KB</a>
+  </header>
+
+  <!-- CENTER STAGE: LOGO + AI BAR -->
+  <main>
+    <div class="logo-container">
+      <h1 class="brand-wordmark">
+        Koto<span class="sub-word">Batuah</span><span class="accent-dot">.</span>
+      </h1>
+    </div>
+
+    <!-- AI Chat Pill Bar -->
+    <div class="ai-bar-wrapper">
+      <form class="ai-pill-bar" id="aiForm">
+        <!-- Plus Button: Quick Prompts -->
+        <button type="button" class="icon-btn" id="plusBtn" title="Topik Cepat" aria-label="Topik Cepat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+
+        <!-- Prompt Input -->
+        <input 
+          type="text" 
+          class="ai-input" 
+          id="aiInput" 
+          placeholder="Tanyakan seputar layanan Koto Batuah &amp; Akomoda..." 
+          autocomplete="off"
+        />
+
+        <!-- Mic Button: Voice-to-Text -->
+        <button type="button" class="icon-btn" id="micBtn" title="Input Suara" aria-label="Input Suara">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+          </svg>
+        </button>
+
+        <!-- AI Mode Submit Button -->
+        <button type="submit" class="ai-submit-pill" id="aiSubmitBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+          </svg>
+          <span>Koto AI</span>
+        </button>
+      </form>
+
+      <!-- Dropdown Quick Prompts -->
+      <div class="quick-prompts-menu" id="quickPromptsMenu">
+        <button type="button" class="prompt-option" data-prompt="Apa saja layanan periklanan dan digital di Koto Batuah?">Layanan Koto Batuah</button>
+        <button type="button" class="prompt-option" data-prompt="Bagaimana cara kerja sama pengembangan web dengan Akomoda Network?">Kerja Sama Akomoda Network</button>
+        <button type="button" class="prompt-option" data-prompt="Bagaimana cara menghubungi tim Koto Batuah via WhatsApp?">Kontak Bisnis &amp; Konsultasi</button>
+      </div>
+    </div>
+
+    <!-- Inline AI Response Area -->
+    <div class="ai-response-box" id="aiResponseBox">
+      <div class="ai-response-header">
+        <span>Koto AI Assistant</span>
+        <button type="button" class="ai-close-btn" id="aiCloseBtn" title="Tutup Jawaban">&times;</button>
+      </div>
+      <div class="ai-response-text" id="aiResponseText"></div>
+    </div>
+  </main>
+
+  <!-- BOTTOM NAVIGATOR -->
+  <footer>
+    <div class="footer-location">
+      <span>Indonesia — Tangerang Selatan</span>
+      <span class="status-pill">
+        <span class="status-dot"></span> Edge Network Operational
+      </span>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-group">
+        <button type="button" data-modal="about">Tentang</button>
+        <button type="button" data-modal="advertising">Periklanan</button>
+        <button type="button" data-modal="business">Ekosistem Bisnis</button>
+        <button type="button" data-modal="how">Arsitektur</button>
+      </div>
+
+      <div class="footer-group">
+        <button type="button" data-modal="privacy">Privasi</button>
+        <button type="button" data-modal="terms">Ketentuan</button>
+        <a href="https://wa.me/6281324412025" target="_blank" rel="noopener">Hubungi Kami</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTWEIGHT MODAL FOR FOOTER ITEMS -->
+  <div class="modal-backdrop" id="infoModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Judul</h2>
+        <button class="modal-close" id="modalClose" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">Konten informasi.</div>
+    </div>
+  </div>
+
+  <script>
+    // ================= KONFIGURASI ENDPOINT AI =================
+    // Ganti URL ini dengan endpoint Cloudflare Worker Anda nanti
+    const AI_WORKER_ENDPOINT = ""; 
+
+    // ================= 1. APP LAUNCHER MENU =================
+    const launcherBtn = document.getElementById('launcherBtn');
+    const launcherMenu = document.getElementById('launcherMenu');
+
+    launcherBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      launcherMenu.classList.toggle('show');
+      quickPromptsMenu.classList.remove('show');
+    });
+
+    // ================= 2. QUICK PROMPTS (+) =================
+    const plusBtn = document.getElementById('plusBtn');
+    const quickPromptsMenu = document.getElementById('quickPromptsMenu');
+    const aiInput = document.getElementById('aiInput');
+    const aiSubmitBtn = document.getElementById('aiSubmitBtn');
+
+    plusBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      quickPromptsMenu.classList.toggle('show');
+      launcherMenu.classList.remove('show');
+    });
+
+    document.querySelectorAll('.prompt-option').forEach(item => {
+      item.addEventListener('click', () => {
+        aiInput.value = item.getAttribute('data-prompt');
+        quickPromptsMenu.classList.remove('show');
+        updateSubmitState();
+        aiForm.dispatchEvent(new Event('submit'));
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!launcherMenu.contains(e.target) && e.target !== launcherBtn) {
+        launcherMenu.classList.remove('show');
+      }
+      if (!quickPromptsMenu.contains(e.target) && e.target !== plusBtn) {
+        quickPromptsMenu.classList.remove('show');
+      }
+    });
+
+    // Highlight tombol Koto AI saat user mengetik
+    function updateSubmitState() {
+      if (aiInput.value.trim().length > 0) {
+        aiSubmitBtn.classList.add('active-accent');
+      } else {
+        aiSubmitBtn.classList.remove('active-accent');
+      }
+    }
+    aiInput.addEventListener('input', updateSubmitState);
+
+    // ================= 3. VOICE INPUT (WEB SPEECH API) =================
+    const micBtn = document.getElementById('micBtn');
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'id-ID';
+      recognition.interimResults = false;
+
+      micBtn.addEventListener('click', () => {
+        micBtn.classList.add('recording');
+        recognition.start();
+      });
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        aiInput.value = transcript;
+        updateSubmitState();
+        aiForm.dispatchEvent(new Event('submit'));
+      };
+
+      recognition.onend = () => micBtn.classList.remove('recording');
+      recognition.onerror = () => micBtn.classList.remove('recording');
+    } else {
+      micBtn.style.display = 'none'; // Sembunyikan otomatis jika browser tidak mendukung
+    }
+
+    // ================= 4. AI CHAT HANDLER =================
+    const aiForm = document.getElementById('aiForm');
+    const aiResponseBox = document.getElementById('aiResponseBox');
+    const aiResponseText = document.getElementById('aiResponseText');
+    const aiCloseBtn = document.getElementById('aiCloseBtn');
+
+    aiCloseBtn.addEventListener('click', () => {
+      aiResponseBox.classList.remove('visible');
+    });
+
+    // Fallback lokal cerdas sebelum Worker API dihubungkan
+    function getLocalKnowledgeFallback(query) {
+      const q = query.toLowerCase();
+      if (q.includes('layanan') || q.includes('iklan') || q.includes('periklanan')) {
+        return "Koto Batuah adalah usaha periklanan terdaftar (OSS) yang menangani strategi digital marketing, optimasi SEO/GEO, manajemen aset media, serta arsitektur web ringan berbasis serverless.";
+      }
+      if (q.includes('akomoda') || q.includes('kerja sama') || q.includes('web')) {
+        return "Akomoda Network adalah mitra teknologi di bawah ekosistem Koto Batuah yang berfokus pada pengembangan aplikasi web cepat (Edge/Cloudflare), sistem headless CMS, dan solusi digital bisnis.";
+      }
+      if (q.includes('kontak') || q.includes('wa') || q.includes('whatsapp') || q.includes('hubungi')) {
+        return "Anda dapat menghubungi tim bisnis Koto Batuah melalui WhatsApp resmi di +62 813-2441-2025 atau email ke halo@kotobatuah.com.";
+      }
+      return "Terima kasih telah bertanya kepada Koto AI. Saat ini mode pratinjau lokal aktif. Untuk konsultasi langsung mengenai periklanan atau ekosistem digital Koto Batuah, silakan hubungi halo@kotobatuah.com atau WhatsApp +62 813-2441-2025.";
+    }
+
+    aiForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const prompt = aiInput.value.trim();
+      if (!prompt) return;
+
+      aiResponseBox.classList.add('visible');
+      aiResponseText.textContent = "Memproses jawaban...";
+
+      // Jika endpoint Cloudflare Worker sudah diisi, panggil API real-time
+      if (AI_WORKER_ENDPOINT) {
+        try {
+          const res = await fetch(AI_WORKER_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt })
+          });
+          const data = await res.json();
+          aiResponseText.textContent = data.reply || "Maaf, tidak ada respons dari server.";
+        } catch (err) {
+          aiResponseText.textContent = "Koneksi ke server AI terganggu. Silakan coba beberapa saat lagi.";
+        }
+      } else {
+        // Simulasi jeda natural untuk jawaban bawaan
+        setTimeout(() => {
+          aiResponseText.textContent = getLocalKnowledgeFallback(prompt);
+        }, 450);
+      }
+    });
+
+    // ================= 5. FOOTER MODAL INFO =================
+    const modalContent = {
+      about: {
+        title: 'Tentang Koto Batuah',
+        body: 'Koto Batuah adalah entitas usaha periklanan terdaftar (OSS) yang berfokus pada pengembangan infrastruktur web ringan, optimasi mesin pencari (SEO/GEO), serta pengelolaan ekosistem aset digital independen.'
+      },
+      advertising: {
+        title: 'Layanan Periklanan Digital',
+        body: 'Menyediakan solusi kampanye pemasaran terukur, manajemen properti media, monetisasi terprogram, serta konsultasi strategi digital bagi mitra korporasi dan UMKM.'
+      },
+      business: {
+        title: 'Ekosistem Bisnis',
+        body: 'Menaungi operasional Akomoda Network sebagai mitra teknologi, pengembangan aplikasi berbasis edge, serta portal informasi regional dan industri.'
+      },
+      how: {
+        title: 'Arsitektur Serverless',
+        body: 'Seluruh properti di bawah Koto Batuah dibangun menggunakan pendekatan serverless-first untuk menjamin kecepatan akses maksimal, keamanan tinggi, dan efisiensi sumber daya.'
+      },
+      privacy: {
+        title: 'Kebijakan Privasi',
+        body: 'Halaman utama kotobatuah.com tidak mengumpulkan data pribadi pengunjung secara langsung tanpa persetujuan eksplisit. Komunikasi bisnis diproses secara rahasia melalui jalur resmi.'
+      },
+      terms: {
+        title: 'Ketentuan Layanan',
+        body: 'Seluruh merek dagang, identitas visual, dan arsitektur kode di dalam domain kotobatuah.com dilindungi oleh ketentuan hukum yang berlaku di Republik Indonesia.'
+      }
+    };
+
+    const infoModal = document.getElementById('infoModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-modal');
+        if (modalContent[key]) {
+          modalTitle.textContent = modalContent[key].title;
+          modalBody.textContent = modalContent[key].body;
+          infoModal.classList.add('open');
+        }
+      });
+    });
+
+    modalClose.addEventListener('click', () => infoModal.classList.remove('open'));
+    infoModal.addEventListener('click', (e) => {
+      if (e.target === infoModal) infoModal.classList.remove('open');
+    });
+  </script>
+</body>
+</html>
