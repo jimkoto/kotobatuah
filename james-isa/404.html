@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Sistem Tidak Menemukan Halaman | Jim Koto</title>
+    <!-- Memuat Tailwind CSS untuk styling responsif yang ringan -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+    
+    <!-- Bagian Header & Navigasi -->
+    <header class="w-full p-6 flex justify-between items-center border-b border-slate-200 bg-white">
+        <a href="https://jimkoto.my.id" class="text-xl font-bold tracking-tighter text-slate-900">
+            JIMKOTO<span class="text-blue-600">.MY.ID</span>
+        </a>
+        <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
+            <a href="https://jimkoto.my.id/" class="hover:text-blue-600 transition">Sistem</a>
+            <a href="https://jimkoto.my.id/" class="hover:text-blue-600 transition">Layanan</a>
+            <a href="https://jimkoto.my.id/" class="hover:text-blue-600 transition">Build Log</a>
+            <a href="https://jimkoto.my.id/" class="hover:text-blue-600 transition">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- Konten Utama 404 -->
+    <main class="flex-grow flex items-center justify-center p-6 text-center">
+        <div class="max-w-2xl">
+            <h1 class="text-9xl font-extrabold text-slate-200 tracking-widest drop-shadow-sm">404</h1>
+            <div class="bg-blue-600 text-white px-3 py-1 text-xs md:text-sm font-semibold rounded inline-block mb-6 -mt-8 relative z-10 tracking-widest">
+                STATUS: ERROR
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                Direktori Tidak Ditemukan
+            </h2>
+            <p class="text-slate-600 mb-8 text-lg md:text-xl leading-relaxed">
+                Arsitektur sistem gagal melacak URL ini. Halaman mungkin telah dipindahkan, direstrukturisasi, atau tidak terdaftar dalam server.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://jimkoto.my.id" class="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Ke Hub Utama
+                </a>
+                <a href="javascript:history.back()" class="px-8 py-3 bg-white text-slate-700 border border-slate-300 font-medium rounded-lg hover:bg-slate-50 transition flex items-center justify-center">
+                    Kembali ke Sebelumnya
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full p-6 text-center text-sm text-slate-500 border-t border-slate-200 bg-white">
+        <p>&copy; 2026 Jim Koto — System Architect & Webmaster | Akomoda Network</p>
+    </footer>
+
+</body>
+</html>

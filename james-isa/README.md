@@ -1,20 +1,21 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# jimkoto.my.id — Final Dark Grid Responsive + Hybrid
 
-# Run and deploy your AI Studio app
+Background disamakan seperti lampiran dark navy grid #0A1220 (screenshot kamu 02/10/2026).
+Responsive: header & footer nav tetap ada di smartphone (tidak display:none).
 
-This contains everything you need to run your app locally.
+## Struktur 8 items + assets (komplit)
+- cookies/, disclaimer/, privacy-policy/, tos/ (legal untuk E-E-A-T)
+- functions/api/articles.ts (Secure Core JWT)
+- assets/img/logo.svg, favicon
+- _headers, index.html, README.md
 
-View your app in AI Studio: https://ai.studio/apps/bb63d8f0-eaae-4ab0-bb5e-cdd5c3dcda4e
+## Deploy Hostinger
+Upload semua ke public_html/. Pastikan .htaccess:
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.html [L]
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Deploy GitHub + Cloudflare Pages
+git add . && git commit -m "final dark grid responsive" && git push
+Env: GOOGLE_SHEET_ID, GOOGLE_SERVICE_ACCOUNT_JSON

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /functions/
+Disallow: /cdn-cgi/
+Sitemap: https://jimkoto.my.id/sitemap.xml
+
+# Hostinger & Cloudflare
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /

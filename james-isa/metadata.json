@@ -1,8 +1,0 @@
-{
-  "name": "Remix Jim Koto DevStudio \u0026 Tech Intelligence Hub",
-  "description": "Portal resmi Jim Koto (James Isa) & Akomoda Network. Mesin Untuk Efisiensi, Manusia Untuk Makna. Solusi digital UMKM, Cloudflare Edge, dan Tech DevStudio.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}

@@ -1,5 +1,0 @@
-# Cloudflare Pages SPA rewrite rules
-/bio/assets/*  /bio/assets/:splat  200
-/bio/          /bio/index.html     200
-/bio           /bio/index.html     200
-/*             /index.html         200
